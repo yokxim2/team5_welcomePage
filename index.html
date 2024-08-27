@@ -40,8 +40,30 @@
         .memberdescription>card-text {
             font-family: "Dongle", sans-serif;
         }
-
     </style>
+    <script>
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
+            authDomain: "team-5-34bc5.firebaseapp.com",
+            projectId: "team-5-34bc5",
+            storageBucket: "team-5-34bc5.appspot.com",
+            messagingSenderId: "252935402993",
+            appId: "1:252935402993:web:174da348fdd057a60e8050",
+            measurementId: "G-1MP10LNJ79"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </head>
 
 <body>
