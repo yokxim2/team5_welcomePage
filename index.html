@@ -12,9 +12,10 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <title>My Album</title>
+    <title>Team 5 Welcome Page</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&display=swap');
 
         .header1 {
             background-color: #2B3035;
@@ -23,7 +24,46 @@
         .headertext {
             color: white;
         }
+
+        .memberdescription {
+            width: 1200px;
+            margin: 30px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px skyblue;
+            border-radius: 5px;
+        }
+
+        .memberdescription>card-title {
+            font-family: "Black Han Sans", sans-serif;
+        }
+
+        .memberdescription>card-text {
+            font-family: "Dongle", sans-serif;
+        }
     </style>
+    <script>
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
+            authDomain: "team-5-34bc5.firebaseapp.com",
+            projectId: "team-5-34bc5",
+            storageBucket: "team-5-34bc5.appspot.com",
+            messagingSenderId: "252935402993",
+            appId: "1:252935402993:web:174da348fdd057a60e8050",
+            measurementId: "G-1MP10LNJ79"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </head>
 
 <body>
@@ -49,17 +89,95 @@
         </nav>
     </div>
 
-    <div class="mytitle">
-        <h1>나만의 추억 앨범</h1>
-        <button>추억 저장하기</button>
+    <div class="memberdescription">
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">김동주</h5>
+                        <p class="card-text">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
+                            백엔드 개발자로 시작하여 해커가 돼서
+                            버그바운티나 모의 해킹에 참여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">김동주</h5>
+                        <p class="card-text">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
+                            백엔드 개발자로 시작하여 해커가 돼서
+                            버그바운티나 모의 해킹에 참여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">김동주</h5>
+                        <p class="card-text">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
+                            백엔드 개발자로 시작하여 해커가 돼서
+                            버그바운티나 모의 해킹에 참여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">김동주</h5>
+                        <p class="card-text">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
+                            백엔드 개발자로 시작하여 해커가 돼서
+                            버그바운티나 모의 해킹에 참여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">김동주</h5>
+                        <p class="card-text">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
+                            백엔드 개발자로 시작하여 해커가 돼서
+                            버그바운티나 모의 해킹에 참여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- footer -->
-    <div class="container">
+    <div class="container-fluid" style="background-color: #2B3035">
         <footer class="py-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>History</h5>
+                    <h5 style="color:white">History</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bootcamp
                                 Registration</a></li>
@@ -82,8 +200,8 @@
 
                 <div class="col-md-5 offset-md-1 mb-3">
                     <form>
-                        <h5>Subscribe to our news</h5>
-                        <p>꾸준히 올라오는 성장스토리를 구독하세요</p>
+                        <h5 style="color:white">Subscribe to our news</h5>
+                        <p style="color:white">꾸준히 올라오는 성장스토리를 구독하세요</p>
                         <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                             <label for="newsletter1" class="visually-hidden">Email address</label>
                             <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
@@ -94,7 +212,7 @@
             </div>
 
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>© 2024 SpartaCoding Inc. All rights reserved.</p>
+                <p style="color:white">© 2024 SpartaCoding Inc. All rights reserved.</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
                                 <use xlink:href="#twitter"></use>
