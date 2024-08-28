@@ -65,6 +65,76 @@
             background-color: #0056b3;
         }
 
+
+        .teambody {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .team-container {
+            max-width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            /* 흰색 배경 */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .team-leader {
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            margin: 15px 0 10px;
+            font-size: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+        }
+
+        .team-member p {
+            margin: 0;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        .team-member a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .team-member a:hover {
+            text-decoration: underline;
+        }
+
+        .team-others {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .team-others .team-member {
+            flex-basis: calc(25% - 20px);
+            margin-bottom: 20px;
+        }
+
         .comment {
             border: 1px solid gray;
             border-radius: 5px;
@@ -96,10 +166,34 @@
             margin: 2px 0px 2px 0px;
         }
     </style>
-    <script>
+    <script type="module">
+        <!-- 수정필요 -->
         function scrollToMain2() {
             document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
+            authDomain: "team-5-34bc5.firebaseapp.com",
+            projectId: "team-5-34bc5",
+            storageBucket: "team-5-34bc5.appspot.com",
+            messagingSenderId: "252935402993",
+            appId: "1:252935402993:web:bf45de147c3fb9430e8050",
+            measurementId: "G-KWFGRWC021"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
     </script>
 </head>
 
@@ -139,6 +233,45 @@
             document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+
+    <!-- main1 -->
+    <div class="teambody">
+        <div class="team-container">
+            <div class="team-leader team-member">
+                <img src="https://ifh.cc/g/x28JjS.jpg" alt="육심헌">
+                <h3>팀장 육심헌(27세)</h3>
+                <p>MBTI : ENFJ</p>
+                <P>사는곳 : </P>
+            </div>
+            <div class="team-others">
+                <div class="team-member">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
+                        alt="김동주">
+                    <h3>팀원 김동주(28세)</h3>
+                    <p>MBTI : INFJ</p>
+                    <P>사는곳 : </P>
+                </div>
+                <div class="team-member">
+                    <img src="https://ifh.cc/g/GynXlX.jpg" alt="백한비">
+                    <h3>팀원 백한비(36세)</h3>
+                    <p>MBTI : INTP-T</p>
+                    <P>사는곳 : </P>
+                </div>
+                <div class="team-member">
+                    <img src="https://ifh.cc/g/J4kYgQ.jpg" alt="서민기">
+                    <h3>팀원 서민기(26세)</h3>
+                    <p>MBTI : INTP-T</p>
+                    <P>사는곳 : </P>
+                </div>
+                <div class="team-member">
+                    <img src="https://ifh.cc/g/BxLBvs.jpg" alt="김혜진">
+                    <h3>팀원 김혜진</h3>
+                    <p>MBTI : INTP</p>
+                    <P>사는곳 : </P>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- main2 -->
     <div class="memberdescription">
