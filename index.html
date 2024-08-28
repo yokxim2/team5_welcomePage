@@ -65,6 +65,36 @@
             background-color: #0056b3;
         }
 
+        .comment {
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 1200px;
+            height: 250px;
+            margin: 100px auto 20px auto;
+            padding: 10px;
+        }
+
+        .comment>button {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .co_box {
+            width: 1200px;
+            margin: 10px auto 10px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            padding: 0px;
+        }
+
+        .co_box>hr {
+            margin: 2px 0px 2px 0px;
+        }
 
         .teambody {
             font-family: 'Roboto', sans-serif;
@@ -134,73 +164,16 @@
             flex-basis: calc(25% - 20px);
             margin-bottom: 20px;
         }
-
-        .comment {
-            border: 1px solid gray;
-            border-radius: 5px;
-            width: 1200px;
-            height: 250px;
-            margin: 100px auto 20px auto;
-            padding: 10px;
-        }
-
-        .comment>button {
-            width: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .co_box {
-            width: 1200px;
-            margin: 10px auto 10px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: center;
-            padding: 0px;
-        }
-
-        .co_box>hr {
-            margin: 2px 0px 2px 0px;
-        }
     </style>
-    <script type="module">
-        <!-- 수정필요 -->
+    <script>
         function scrollToMain2() {
             document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
         }
-
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
-            authDomain: "team-5-34bc5.firebaseapp.com",
-            projectId: "team-5-34bc5",
-            storageBucket: "team-5-34bc5.appspot.com",
-            messagingSenderId: "252935402993",
-            appId: "1:252935402993:web:bf45de147c3fb9430e8050",
-            measurementId: "G-KWFGRWC021"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
     </script>
 </head>
 
 <body>
     <!-- header -->
-    <!--수정 내용 1-->
-    <!-- 수정 내용 2-->
     <div class="header1">
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
@@ -224,7 +197,7 @@
 
     <!-- banner -->
     <div class="banner-container">
-        <img src="https://ifh.cc/g/VN2QWg.gif" alt="5심헌과 아이들">
+        <img src="https://ifh.cc/g/V1YxRS.gif" alt="5심헌과 아이들">
         <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
     </div>
 
@@ -234,7 +207,6 @@
         }
     </script>
 
-    <!-- main1 -->
     <div class="teambody">
         <div class="team-container">
             <div class="team-leader team-member">
@@ -245,8 +217,7 @@
             </div>
             <div class="team-others">
                 <div class="team-member">
-                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
-                        alt="김동주">
+                    <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg" alt="김동주">
                     <h3>팀원 김동주(28세)</h3>
                     <p>MBTI : INFJ</p>
                     <P>사는곳 : </P>
