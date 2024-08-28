@@ -33,36 +33,80 @@
             border-radius: 5px;
         }
 
+        .banner-container {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn-view-more {
+            position: absolute;
+            bottom: 535px;
+            left: 86.5%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 1.6rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .btn-view-more:hover {
+            background-color: #0056b3;
+        }
+
+        .comment {
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 1200px;
+            height: 250px;
+            margin: 100px auto 20px auto;
+            padding: 10px;
+        }
+
+        .comment>button {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .co_box {
+            width: 1200px;
+            margin: 10px auto 10px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            padding: 0px;
+        }
+
+        .co_box>hr {
+            margin: 2px 0px 2px 0px;
+        }
     </style>
     <script>
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
-            authDomain: "team-5-34bc5.firebaseapp.com",
-            projectId: "team-5-34bc5",
-            storageBucket: "team-5-34bc5.appspot.com",
-            messagingSenderId: "252935402993",
-            appId: "1:252935402993:web:174da348fdd057a60e8050",
-            measurementId: "G-1MP10LNJ79"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        function scrollToMain2() {
+            document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </head>
 
 <body>
     <!-- header -->
-     <!--수정 내용 1-->
-     <!-- 수정 내용 2-->
+    <!--수정 내용 1-->
+    <!-- 수정 내용 2-->
     <div class="header1">
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
@@ -84,17 +128,34 @@
         </nav>
     </div>
 
+    <!-- banner -->
+    <div class="banner-container">
+        <img src="https://ifh.cc/g/VN2QWg.gif" alt="5심헌과 아이들">
+        <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
+    </div>
+
+    <script>
+        function scrollToMain2() {
+            document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- main2 -->
     <div class="memberdescription">
         <div class="card mb-3" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://ifh.cc/g/x28JjS.jpg"
-                        class="img-fluid rounded-start" alt="...">
+                    <img src="https://ifh.cc/g/x28JjS.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">육심헌</span></h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">아직 다른 개발자 분들과 협업은 많이 해보지 못해서, 이번 부트캠프를 통해 다른 분들과 협업과 커뮤니케이션 능력을 기르고 싶어요. 또 배운 내용을 최대한 활용해서, 취업을 목표로 잘 만들어진 포트폴리오를 만드는 것이 제 목표입니다. 특히 자바, 코틀린, 스프링을 제대로 숙지하고 수료할수 있게 노력하겠습니다 :)</span></h3>
+                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">육심헌</span>
+                        </h1>
+                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">아직 다른 개발자 분들과 협업은
+                                많이 해보지
+                                못해서, 이번 부트캠프를 통해 다른 분들과 협업과 커뮤니케이션 능력을 기르고 싶어요. 또 배운 내용을 최대한 활용해서, 취업을 목표로 잘
+                                만들어진 포트폴리오를
+                                만드는 것이 제 목표입니다. 특히 자바, 코틀린, 스프링을 제대로 숙지하고 수료할수 있게 노력하겠습니다 :)</span></h3>
                     </div>
                 </div>
             </div>
@@ -107,10 +168,13 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김동주</span></h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">부트캠프에 참여하여 자바와 코틀린 언어를 기본으로
-                            백엔드 개발자로 시작하여 해커가 돼서
-                            버그바운티나 모의 해킹에 참여하고 싶습니다.</span></h3>
+                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김동주</span>
+                        </h1>
+                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">부트캠프에 참여하여 자바와
+                                코틀린 언어를
+                                기본으로
+                                백엔드 개발자로 시작하여 해커가 돼서
+                                버그바운티나 모의 해킹에 참여하고 싶습니다.</span></h3>
                     </div>
                 </div>
             </div>
@@ -118,15 +182,19 @@
         <div class="card mb-3" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://ifh.cc/g/GynXlX.jpg"
-                        class="img-fluid rounded-start" alt="...">
+                    <img src="https://ifh.cc/g/GynXlX.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">백한비</span></h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">오랜 기간동안 공장에서 일을 하다 그만두게되니 막상 할 줄 아는 게 아무것도 없었습니다.
-                            내일배움캠프는 알고있어서 관심은 가지고 있었지만 선뜻 손댈 수 없었던 분야였기에 이 기회에 지원하여 많은것을 배우고 이 과정을 모두 수료하여 취업을 하기 위해 도전하게 되었습니다.
-                            최우선 목표는 취업으로 잡고있고 부가적으로는 최대한 많은것을 배워가는 것을 목표로 하고있습니다.</span></h3>
+                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">백한비</span>
+                        </h1>
+                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">오랜 기간동안 공장에서 일을
+                                하다 그만두게되니
+                                막상 할 줄 아는 게 아무것도 없었습니다.
+                                내일배움캠프는 알고있어서 관심은 가지고 있었지만 선뜻 손댈 수 없었던 분야였기에 이 기회에 지원하여 많은것을 배우고 이 과정을 모두 수료하여
+                                취업을 하기 위해
+                                도전하게 되었습니다.
+                                최우선 목표는 취업으로 잡고있고 부가적으로는 최대한 많은것을 배워가는 것을 목표로 하고있습니다.</span></h3>
                     </div>
                 </div>
             </div>
@@ -134,13 +202,17 @@
         <div class="card mb-3" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://ifh.cc/g/J4kYgQ.jpg"
-                        class="img-fluid rounded-start" alt="...">
+                    <img src="https://ifh.cc/g/J4kYgQ.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">서민기</span></h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">개발자로써 현업에서 중요한것은 기술도 중요하지만 팀원들과의 협업이라고 생각합니다. 이번 부트캠프에서 많은 팀원들과 소통하며 협업능력을 키우고 싶고 또한 좋은 프로젝트로 포트폴리오에 기입하여 이것으로 취업을 목표로 하고 있습니다.</span></h3>
+                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">서민기</span>
+                        </h1>
+                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">개발자로써 현업에서 중요한것은
+                                기술도
+                                중요하지만 팀원들과의 협업이라고 생각합니다. 이번 부트캠프에서 많은 팀원들과 소통하며 협업능력을 키우고 싶고 또한 좋은 프로젝트로 포트폴리오에
+                                기입하여
+                                이것으로 취업을 목표로 하고 있습니다.</span></h3>
                     </div>
                 </div>
             </div>
@@ -148,18 +220,59 @@
         <div class="card mb-3" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://ifh.cc/g/8zGP2p.jpg"
-                        class="img-fluid rounded-start" alt="...">
+                    <img src="https://ifh.cc/g/BxLBvs.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김혜진</span></h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">이번 부트캠프를 통해 개발의 기본기를 탄탄히 다지고 싶어요. 아무래도 비전공자고, 처음 시작하는 만큼 기초를 잘 잡아야 나중에 더 복잡한 프로젝트나 문제도 잘 해결할 수 있을 테니까요. 또, 팀 프로젝트를 통해 함께 문제를 해결하면서 다양한 인사이트를 얻는 것이 제 목표 중 하나예요. 다른 사람들과의 협업을 통해 제가 놓치고 있던 부분들을 배우고, 새로운 관점을 접하는 것이 큰 도움이 될 것 같아요. 부트캠프가 끝날 즈음에는 자신감도 많이 생기고, 앞으로 더 많은 도전에도 용기를 가질 수 있길 기대하고 있어요. 궁극적으로는 이 경험을 바탕으로 개발자로 취업하거나, 창업해서 돈 많이 벌고싶어요...ㅎㅎ</span></h3>
+                        <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김혜진</span>
+                        </h1>
+                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">이번 부트캠프를 통해 개발의
+                                기본기를 탄탄히
+                                다지고 싶어요. 아무래도 비전공자고, 처음 시작하는 만큼 기초를 잘 잡아야 나중에 더 복잡한 프로젝트나 문제도 잘 해결할 수 있을 테니까요.
+                                또, 팀
+                                프로젝트를 통해 함께 문제를 해결하면서 다양한 인사이트를 얻는 것이 제 목표 중 하나예요. 다른 사람들과의 협업을 통해 제가 놓치고 있던
+                                부분들을 배우고,
+                                새로운 관점을 접하는 것이 큰 도움이 될 것 같아요. 부트캠프가 끝날 즈음에는 자신감도 많이 생기고, 앞으로 더 많은 도전에도 용기를 가질 수
+                                있길 기대하고
+                                있어요. 궁극적으로는 이 경험을 바탕으로 개발자로 취업하거나, 창업해서 돈 많이 벌고싶어요...ㅎㅎ</span></h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- comment -->
+    <form id="c_i_box" class="comment">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록 작성</h3>
+        <div class="form-floating mb-3">
+            <input id="c_i_name" type="Name" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="c_i_comment" type="comment" class="form-control" id="floatingInput" placeholder="Comment">
+            <label for="floatingInput">Comment</label>
+        </div>
+        <button id="addcommentbtn" type="button" class="btn btn-dark">Write</button>
+    </form>
+    <label></label>
+    <div id="commentbox" class="co_box">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록</h3>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+    </div>
+
 
     <!-- footer -->
     <div class="container-fluid" style="background-color: #2B3035">
@@ -174,7 +287,8 @@
                                 begins</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bootcamp
                                 begins</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Team 5: The
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Team 5:
+                                The
                                 beginning of a Legend</a></li>
                     </ul>
                 </div>
