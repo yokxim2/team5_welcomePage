@@ -100,9 +100,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
         // Your web app's Firebase configuration
@@ -119,6 +117,7 @@
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
         const analytics = getAnalytics(app);
 
 
@@ -143,7 +142,7 @@
                 'comment': comment,
                 'time' : time
             }
-
+            await addDoc(collection(db, "comments"), doc);
             alert(time)
             window.location.reload()
         })
@@ -155,6 +154,8 @@
 
 <body>
     <!-- header -->
+     <!--수정 내용 1-->
+     <!-- 수정 내용 2-->
     <div class="header1">
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
@@ -268,7 +269,7 @@
         <div class="card mb-3" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://ifh.cc/g/BxLBvs.jpg" class="img-fluid rounded-start" alt="...">
+                  <img src="https://ifh.cc/g/BxLBvs.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
