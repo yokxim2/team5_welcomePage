@@ -64,6 +64,39 @@
         .btn-view-more:hover {
             background-color: #0056b3;
         }
+
+        <<<<<<< HEAD=======.comment {
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 1200px;
+            height: 250px;
+            margin: 100px auto 20px auto;
+            padding: 10px;
+        }
+
+        .comment>button {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .co_box {
+            width: 1200px;
+            margin: 10px auto 10px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            padding: 0px;
+        }
+
+        .co_box>hr {
+            margin: 2px 0px 2px 0px;
+        }
+
+        >>>>>>>ef6727b6e8eaf90c98099346ff7fbc6134ebdcdb
     </style>
     <script>
         function scrollToMain2() {
@@ -74,6 +107,8 @@
 
 <body>
     <!-- header -->
+    <!--수정 내용 1-->
+    <!-- 수정 내용 2-->
     <div class="header1">
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
@@ -207,6 +242,39 @@
             </div>
         </div>
     </div>
+
+
+    <!-- comment -->
+    <form id="c_i_box" class="comment">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록 작성</h3>
+        <div class="form-floating mb-3">
+            <input id="c_i_name" type="Name" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="c_i_comment" type="comment" class="form-control" id="floatingInput" placeholder="Comment">
+            <label for="floatingInput">Comment</label>
+        </div>
+        <button id="addcommentbtn" type="button" class="btn btn-dark">Write</button>
+    </form>
+    <label></label>
+    <div id="commentbox" class="co_box">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록</h3>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+        <p class="co_name">name</p>
+        <p class="co_comment">Comment</p>
+        <p class="co_time" style="font-size: 12px;">Time</p>
+        <hr>
+    </div>
+
 
     <!-- footer -->
     <div class="container-fluid" style="background-color: #2B3035">
