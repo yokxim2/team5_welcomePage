@@ -28,7 +28,7 @@
 
         a {
             text-decoration: none;
-            color:inherit;
+            color: inherit;
         }
 
         .memberdescription {
@@ -70,6 +70,7 @@
         .btn-view-more:hover {
             background-color: #0056b3;
         }
+
         .teambody {
             font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
@@ -149,7 +150,7 @@
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",  
+            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
             authDomain: "team-5-34bc5.firebaseapp.com",
             projectId: "team-5-34bc5",
             storageBucket: "team-5-34bc5.appspot.com",
@@ -162,6 +163,51 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const analytics = getAnalytics(app);
+
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // 월을 2자리로
+            const day = String(date.getDate()).padStart(2, '0'); // 일을 2자리로
+            const hours = String(date.getHours()).padStart(2, '0'); // 시간을 2자리로
+            const minutes = String(date.getMinutes()).padStart(2, '0'); // 분을 2자리로
+            const seconds = String(date.getSeconds()).padStart(2, '0'); // 초를 2자리로
+
+            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        }
+
+        $("#addcommentbtn").click(async function () {
+            const now = new Date();
+            let name = $('#c_i_name').val()
+            let comment = $('#c_i_comment').val()
+            let time = formatDate(now)
+            let doc = {
+                'name': name,
+                'comment': comment,
+                'time': time
+            }
+            await addDoc(collection(db, "comments"), doc);
+            alert(time)
+            window.location.reload()
+        })
+
+        let docs = await getDocs(collection(db, "comments"));
+        docs.forEach((doc) => {
+            let row = doc.data();
+
+            let name = row.name;
+            let comment = row.comment;
+            let time = row.time;
+
+            let temp_html = `
+        <p class="co_name">${name}</p>
+        <p class="co_comment">${comment}</p>
+        <p class="co_time" style="font-size: 12px;">${time}</p>
+        <hr>
+        `;
+            $('#commentbox').append(temp_html)
+        });
+
     </script>
 </head>
 
@@ -171,19 +217,18 @@
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
-                    <li class="nav-item"><a href="#simhunmembercard" class="nav-link link-body-emphasis px-2 active"
-                            aria-current="page"><span class="headertext">육심헌</span></a></li>
-                    <li class="nav-item"><a href="#dongjoomembercard" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">김동주</span></a></li>
-                    <li class="nav-item"><a href="#hanbimembercard" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">백한비</span></a></li>
-                    <li class="nav-item"><a href="#mingimembercard" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">서민기</span></a></li>
-                    <li class="nav-item"><a href="#hyejinmembercard" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">김혜진</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page"><span class="headertext">Home</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">History</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">Event</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">Gallery</span></a></li>
                 </ul>
                 <div class="ms-auto">
-                    <button style="margin-right:9px" type="button" class="btn btn-light"><a href="Comment.html">방명록 이동하기</a></button>
+                    <button style="margin-right:9px" type="button" class="btn btn-light"><a href="Comment.html">방명록
+                            이동하기</a></button>
                 </div>
             </div>
         </nav>
@@ -191,8 +236,8 @@
 
     <!-- banner -->
     <div class="banner-container">
-        <img src="https://ifh.cc/g/V1YxRS.gif" alt="5심헌과 아이들">
-        <button id="commentbtn" class="btn-view-more"><a href="Comment.html">View More</a></button>
+        <img src="5심헌과 아이들.svg" alt="5심헌과 아이들">
+        <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
     </div>
 
     <script>
@@ -424,6 +469,24 @@
     </div>
 
 
+    <!-- comment -->
+    <form id="c_i_box" class="comment">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록 작성</h3>
+        <div class="form-floating mb-3">
+            <input id="c_i_name" type="Name" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="c_i_comment" type="comment" class="form-control" id="floatingInput" placeholder="Comment">
+            <label for="floatingInput">Comment</label>
+        </div>
+        <button id="addcommentbtn" type="button" class="btn btn-dark">Write</button>
+    </form>
+    <label></label>
+    <div id="commentbox" class="co_box">
+        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록</h3>
+        <hr>
+    </div>
 
 
     <!-- footer -->
