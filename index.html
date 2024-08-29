@@ -71,6 +71,14 @@
             background-color: #0056b3;
         }
 
+        .team-intro .team-member {
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .teambody {
             font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
@@ -139,6 +147,43 @@
             flex-basis: calc(25% - 20px);
             margin-bottom: 20px;
         }
+
+        .team-intro {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            /* 또는 center, 요소의 내용이 어떻게 배치될지 결정 */
+        }
+
+        h4 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        #team-title {
+            font-family: 'Black Han Sans', sans-serif;
+            margin-top: 50px;
+            transition: transform 0.3s ease;
+            transform-origin: left center;
+            cursor: pointer;
+        }
+
+        #team-title:hover {
+            transform: scale(1.1);
+            color: red;
+        }
+
+        #team-details {
+            margin-top: 20px;
+        }
     </style>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -164,49 +209,16 @@
         const db = getFirestore(app);
         const analytics = getAnalytics(app);
 
-
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // 월을 2자리로
-            const day = String(date.getDate()).padStart(2, '0'); // 일을 2자리로
-            const hours = String(date.getHours()).padStart(2, '0'); // 시간을 2자리로
-            const minutes = String(date.getMinutes()).padStart(2, '0'); // 분을 2자리로
-            const seconds = String(date.getSeconds()).padStart(2, '0'); // 초를 2자리로
-
-            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        }
-
-        $("#addcommentbtn").click(async function () {
-            const now = new Date();
-            let name = $('#c_i_name').val()
-            let comment = $('#c_i_comment').val()
-            let time = formatDate(now)
-            let doc = {
-                'name': name,
-                'comment': comment,
-                'time': time
+        // Team Details
+        document.getElementById("team-title").addEventListener("click", function () {
+            var details = document.getElementById("team-details");
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
             }
-            await addDoc(collection(db, "comments"), doc);
-            alert(time)
-            window.location.reload()
-        })
-
-        let docs = await getDocs(collection(db, "comments"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-
-            let name = row.name;
-            let comment = row.comment;
-            let time = row.time;
-
-            let temp_html = `
-        <p class="co_name">${name}</p>
-        <p class="co_comment">${comment}</p>
-        <p class="co_time" style="font-size: 12px;">${time}</p>
-        <hr>
-        `;
-            $('#commentbox').append(temp_html)
         });
+
 
     </script>
 </head>
@@ -217,14 +229,16 @@
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active"
-                            aria-current="page"><span class="headertext">Home</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">History</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Event</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Gallery</span></a></li>
+                    <li class="nav-item"><a href="#simhunmembercard" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page"><span class="headertext">육심헌</span></a></li>
+                    <li class="nav-item"><a href="#dongjoomembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김동주</span></a></li>
+                    <li class="nav-item"><a href="#hanbimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">백한비</span></a></li>
+                    <li class="nav-item"><a href="#mingimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">서민기</span></a></li>
+                    <li class="nav-item"><a href="#hyejinmembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김혜진</span></a></li>
                 </ul>
                 <div class="ms-auto">
                     <button style="margin-right:9px" type="button" class="btn btn-light"><a href="Comment.html">방명록
@@ -236,8 +250,8 @@
 
     <!-- banner -->
     <div class="banner-container">
-        <img src="5심헌과 아이들.svg" alt="5심헌과 아이들">
-        <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
+        <img src="https://ifh.cc/g/V1YxRS.gif" alt="5심헌과 아이들">
+        <button id="commentbtn" class="btn-view-more"><a href="Comment.html">View More</a></button>
     </div>
 
     <script>
@@ -245,6 +259,27 @@
             document.querySelector('.memberdescription').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+
+    <!-- 팀 소개 -->
+    <div class="team-intro">
+        <h1 id="team-title" style="font-family: 'Black Han Sans', sans-serif; margin-top: 50px;">▶▶▶ 팀 소개</h1>
+        <div id="team-details" style="display: none;">
+            <h4><strong>🚀나만의 강점은?</strong></h4>
+            <h5>- <strong>육심헌</strong>: 멘탈 내구도 MAX</h5>
+            <h5>- <strong>김동주</strong>: 알잘딱깔센(알아서 잘 딱 깔끔하고 센스있게)</h5>
+            <h5>- <strong>서민기</strong>: 어떤일이던 적응력이 빠르다. </h5>
+            <h5>- <strong>백한비</strong>: 느리지만 꾸준히 걸어가는 사람입니다.</h5>
+            <h5>- <strong>김혜진</strong>: 어떻게든 문제를 해결하려고 한다.</h5>
+
+            <h4><strong>🧑‍💻나의 협업 스타일은?</strong></h4>
+            <h5>- <strong>육심헌</strong>: 책임감을 가지고 임하며 소통을 중시하려고 합니다.</h5>
+            <h5>- <strong>김동주</strong>: 밝은 성격으로 팀원들과 융화가 잘 됩니다.</h5>
+            <h5>- <strong>서민기</strong>: 팀에 해가 되지 않으려 노력하며,팀원들의 의견을 잘 수용합니다.</h5>
+            <h5>- <strong>백한비</strong>: 맡은 일은 최선을 다 해서 해내려고 합니다.</h5>
+            <h5>- <strong>김혜진</strong>: 각자 사람들의 다양한 배경, 의견, 가치관을 존중합니다.</h5>
+        </div>
+    </div>
+
 
 
     <div class="teambody">
@@ -469,24 +504,6 @@
     </div>
 
 
-    <!-- comment -->
-    <form id="c_i_box" class="comment">
-        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록 작성</h3>
-        <div class="form-floating mb-3">
-            <input id="c_i_name" type="Name" class="form-control" id="floatingInput" placeholder="Name">
-            <label for="floatingInput">Name</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input id="c_i_comment" type="comment" class="form-control" id="floatingInput" placeholder="Comment">
-            <label for="floatingInput">Comment</label>
-        </div>
-        <button id="addcommentbtn" type="button" class="btn btn-dark">Write</button>
-    </form>
-    <label></label>
-    <div id="commentbox" class="co_box">
-        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록</h3>
-        <hr>
-    </div>
 
 
     <!-- footer -->
