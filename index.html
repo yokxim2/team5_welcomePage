@@ -105,15 +105,25 @@
         }
 
         .team-container {
-            max-width: 90%;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            /* 흰색 배경 */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
+    max-width: 1280px; /* 가로 폭을 1280픽셀로 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.info-text {
+    font-size: 18px;
+    color: #fff; 
+    background-color: black; 
+    padding: 10px 20px;
+    border-radius: 8px; /* 모서리 둥글게 */
+    margin-bottom: 20px; /* 아래쪽 마진 */
+    font-weight: bold; /* 텍스트 굵게 */
+    display: inline-block; /* 인라인 블록으로 */
+    text-align: center; /* 중앙 정렬 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
         .team-leader {
             margin-bottom: 30px;
         }
@@ -272,44 +282,43 @@
     </script>
 
 
-    <div class="teambody">
-        <div class="team-container">
-            <div class="team-leader team-member">
-                <a href="https://yokxim.tistory.com/"><img src="https://ifh.cc/g/x28JjS.jpg" alt="육심헌">
-                </a>
-                <h3>팀장 육심헌(27세)</h3>
-                <p>MBTI : ENFJ</p>
-                <P>사는곳 : 수원</P>
+<div class="teambody">
+    <div class="team-container">
+        <p class="info-text">사진을 클릭하면 개인 블로그로 이동합니다.</p>
+        <div class="team-leader team-member">
+            <a href="https://yokxim.tistory.com/"><img src="https://ifh.cc/g/x28JjS.jpg" alt="육심헌"></a>
+            <h3>팀장 육심헌(27세)</h3>
+            <p>MBTI : ENFJ</p>
+            <p>사는곳 : 수원</p>
+        </div>
+        <div class="team-others">
+            <div class="team-member">
+                <a href="https://despereaux.tistory.com/"><img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg" alt="김동주"></a>
+                <h3>팀원 김동주(28세)</h3>
+                <p>MBTI : INFJ</p>
+                <p>사는곳 : 대전</p>
             </div>
-            <div class="team-others">
-                <div class="team-member">
-                    <a href="https://despereaux.tistory.com/"><img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg" alt="김동주">
-                    </a>
-                    <h3>팀원 김동주(28세)</h3>
-                    <p>MBTI : INFJ</p>
-                    <P>사는곳 : 대전</P>
-                </div>
-                <div class="team-member">
-                    <a href="https://tip-blog-welcome.tistory.com/"><img src="https://ifh.cc/g/GynXlX.jpg" alt="백한비"></a>
-                    <h3>팀원 백한비(35세)</h3>
-                    <p>MBTI : INTP-T</p>
-                    <P>사는곳 : 청주</P>
-                </div>
-                <div class="team-member">
-                    <a href="https://notion9821.tistory.com/"><img src="https://ifh.cc/g/J4kYgQ.jpg" alt="서민기"></a>
-                    <h3>팀원 서민기(26세)</h3>
-                    <p>MBTI : INTP-T</p>
-                    <P>사는곳 : 순천</P>
-                </div>
-                <div class="team-member">
-                    <a href="https://starta.tistory.com/"><img src="https://ifh.cc/g/BxLBvs.jpg" alt="김혜진"></a>
-                    <h3>팀원 김혜진(28살)</h3>
-                    <p>MBTI : INTP</p>
-                    <P>사는곳 : 부산</P>
-                </div>
+            <div class="team-member">
+                <a href="https://tip-blog-welcome.tistory.com/"><img src="https://ifh.cc/g/GynXlX.jpg" alt="백한비"></a>
+                <h3>팀원 백한비(35세)</h3>
+                <p>MBTI : INTP-T</p>
+                <p>사는곳 : 청주</p>
+            </div>
+            <div class="team-member">
+                <a href="https://notion9821.tistory.com/"><img src="https://ifh.cc/g/J4kYgQ.jpg" alt="서민기"></a>
+                <h3>팀원 서민기(26세)</h3>
+                <p>MBTI : INTP-T</p>
+                <p>사는곳 : 순천</p>
+            </div>
+            <div class="team-member">
+                <a href="https://starta.tistory.com/"><img src="https://ifh.cc/g/BxLBvs.jpg" alt="김혜진"></a>
+                <h3>팀원 김혜진(28세)</h3>
+                <p>MBTI : INTP</p>
+                <p>사는곳 : 부산</p>
             </div>
         </div>
     </div>
+</div>
 
     <!-- main2 -->
     <div class="memberdescription">
