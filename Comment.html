@@ -90,6 +90,10 @@
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
+
+
+
+
     $("#addcommentbtn").click(async function () {
         const now = new Date();
         let name = $('#c_i_name').val()
@@ -100,6 +104,16 @@
             'comment': comment,
             'time': time,
         }
+
+        if(name==''){
+            alert('이름이 작성되지 않았습니다.');
+            return;
+        }
+        if(comment==''){
+            alert('내용이 작성되지 않았습니다.');
+            return;
+        }
+
         await addDoc(collection(db, "comments"), doc);
         alert('방명록 작성이 완료되었습니다.')
         window.location.reload()
