@@ -16,6 +16,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
 
         .header1 {
             background-color: #2B3035;
@@ -25,11 +26,16 @@
             color: white;
         }
 
+        a {
+            text-decoration: none;
+            color:inherit;
+        }
+
         .memberdescription {
-            width: 1200px;
+            width: 1280px;
             margin: 30px auto 0px auto;
             padding: 20px;
-            box-shadow: 0px 0px 3px 0px skyblue;
+            box-shadow: 0px 0px 3px 0px black;
             border-radius: 5px;
         }
 
@@ -54,7 +60,7 @@
             padding: 10px 20px;
             font-size: 1.6rem;
             color: #fff;
-            background-color: #007bff;
+            background-color: #ffffffca;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -64,38 +70,6 @@
         .btn-view-more:hover {
             background-color: #0056b3;
         }
-
-        .comment {
-            border: 1px solid gray;
-            border-radius: 5px;
-            width: 1200px;
-            height: 250px;
-            margin: 100px auto 20px auto;
-            padding: 10px;
-        }
-
-        .comment>button {
-            width: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .co_box {
-            width: 1200px;
-            margin: 10px auto 10px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: center;
-            padding: 0px;
-        }
-
-        .co_box>hr {
-            margin: 2px 0px 2px 0px;
-        }
-      
         .teambody {
             font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
@@ -185,7 +159,7 @@
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",
+            apiKey: "AIzaSyAne20aiqs4TwMZOEM2rIOKOLiFbgN-LYU",  
             authDomain: "team-5-34bc5.firebaseapp.com",
             projectId: "team-5-34bc5",
             storageBucket: "team-5-34bc5.appspot.com",
@@ -198,51 +172,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const analytics = getAnalytics(app);
-
-
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // 월을 2자리로
-            const day = String(date.getDate()).padStart(2, '0'); // 일을 2자리로
-            const hours = String(date.getHours()).padStart(2, '0'); // 시간을 2자리로
-            const minutes = String(date.getMinutes()).padStart(2, '0'); // 분을 2자리로
-            const seconds = String(date.getSeconds()).padStart(2, '0'); // 초를 2자리로
-
-            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        }
-
-        $("#addcommentbtn").click(async function () {
-            const now = new Date();
-            let name = $('#c_i_name').val()
-            let comment = $('#c_i_comment').val()
-            let time = formatDate(now)
-            let doc = {
-                'name': name,
-                'comment': comment,
-                'time': time
-            }
-            await addDoc(collection(db, "comments"), doc);
-            alert(time)
-            window.location.reload()
-        })
-
-        let docs = await getDocs(collection(db, "comments"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-
-            let name = row.name;
-            let comment = row.comment;
-            let time = row.time;
-
-            let temp_html = `
-        <p class="co_name">${name}</p>
-        <p class="co_comment">${comment}</p>
-        <p class="co_time" style="font-size: 12px;">${time}</p>
-        <hr>
-        `;
-            $('#commentbox').append(temp_html)
-        });
-
     </script>
 </head>
 
@@ -252,19 +181,20 @@
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active"
-                            aria-current="page"><span class="headertext">Home</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">History</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Event</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Gallery</span></a></li>
+                    <li class="nav-item"><a href="#simhunmembercard" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page"><span class="headertext">육심헌</span></a></li>
+                    <li class="nav-item"><a href="#dongjoomembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김동주</span></a></li>
+                    <li class="nav-item"><a href="#hanbimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">백한비</span></a></li>
+                    <li class="nav-item"><a href="#mingimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">서민기</span></a></li>
+                    <li class="nav-item"><a href="#hyejinmembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김혜진</span></a></li>
                 </ul>
-                <ul class="nav">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-danger">Sign-up</button>
-                </ul>
+                <div class="ms-auto">
+                    <button style="margin-right:9px" type="button" class="btn btn-light"><a href="Comment.html">방명록 이동하기</a></button>
+                </div>
             </div>
         </nav>
     </div>
@@ -272,7 +202,7 @@
     <!-- banner -->
     <div class="banner-container">
         <img src="https://ifh.cc/g/V1YxRS.gif" alt="5심헌과 아이들">
-        <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
+        <button id="commentbtn" class="btn-view-more"><a href="Comment.html">View More</a></button>
     </div>
 
     <script>
@@ -322,7 +252,7 @@
 
     <!-- main2 -->
     <div class="memberdescription">
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div id="simhunmembercard" class="card mb-3" style="max-width: 1280px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://ifh.cc/g/x28JjS.jpg" class="img-fluid rounded-start" alt="...">
@@ -331,16 +261,29 @@
                     <div class="card-body">
                         <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">육심헌</span>
                         </h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">아직 다른 개발자 분들과 협업은
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프에 참여하게 된 계기는 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">컴공과를 졸업을 했음에도 취업 준비가
+                                너무 안 되어 있다고 생각했어요. 내가 배운걸 어떻게 써먹을 수 있을까 고민하던 중에 백엔드 개발 직종을 목표로 하게 됐습니다. 그리고 포트폴리오를 작성하기
+                                위해 부트캠프를 찾던 중 이곳을 찾게 되었습니다!</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 개발
+                                경험이 있으신가요? / 부트 캠프를 진행하면서 세운 목표가 있다면 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">아직 다른 개발자 분들과 협업은
                                 많이 해보지
                                 못해서, 이번 부트캠프를 통해 다른 분들과 협업과 커뮤니케이션 능력을 기르고 싶어요. 또 배운 내용을 최대한 활용해서, 취업을 목표로 잘
                                 만들어진 포트폴리오를
-                                만드는 것이 제 목표입니다. 특히 자바, 코틀린, 스프링을 제대로 숙지하고 수료할수 있게 노력하겠습니다 :)</span></h3>
+                                만드는 것이 제 목표입니다. 특히 자바, 코틀린, 스프링을 제대로 숙지하고 수료할수 있게 노력하겠습니다 :)</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 이
+                                밖에도 취미나 습관, 좋아하는 것들이 있나요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">취미로 운동으로는 달리기를 자주 하고
+                                요즘에는 남는 시간에 수영을 해보려고 하고 있습니다! 요리도 취미였는데 최근에는 자취를 안하다 보니까 손이 잘 안가게 된거 같아요 ㅋㅋ 요리용 인스타그램도
+                                있습니다 XD 집에 있는것도 좋아하긴 하지만 최근에 밖에 많이 안나가서 몸이 많이 굳은거 같아요 ㅋㅋ 다른 많은 사람들과 만나서 얘기하는 걸
+                                좋아해요</span></h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div id="dongjoomembercard" class="card mb-3" style="max-width: 1280px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&amp;fname=https://blog.kakaocdn.net/dn/b5lvcQ/btsIXuKeoqm/peZudHLyT4Grf3JI41EIe1/img.jpg"
@@ -350,16 +293,36 @@
                     <div class="card-body">
                         <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김동주</span>
                         </h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">부트캠프에 참여하여 자바와
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프에 참여하게 된 계기는 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">어릴 때부터 게임을 직접 플레이하는
+                                것보다
+                                컴퓨터 부품과 관리에 관심이 더 많이 갔었던 것 같습니다.
+                                SA:MP와 초기 마인크래프트 모드파일을 뜯어고치고
+                                서버를 열고 운영자로 활동했던 기억이 있습니다.
+                                현재 간호학과를 휴학 중에 있으며, 진로에 대해 여러 고민이 많은 상태에서
+                                커리큘럼이 잘 짜여진 부트캠프를 알게 되었고 참여하게 되었습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 개발
+                                경험이 있으신가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">파이썬 기초 도서 실습 1회독
+                                해봤습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프를 진행하면서 세운 목표가 있다면 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">부트캠프에 참여하여 자바와
                                 코틀린 언어를
                                 기본으로
                                 백엔드 개발자로 시작하여 해커가 돼서
-                                버그바운티나 모의 해킹에 참여하고 싶습니다.</span></h3>
+                                버그바운티나 모의 해킹에 참여하고 싶습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 이
+                                밖에도 취미나 습관, 좋아하는 것들이 있나요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">혼자서 또는 함께 영화를 감상하고
+                                감상평을 나누는 것을 좋아합니다.
+                                그리고 20살 처음 전공했던 요리부터 최근에는 음료와 술에도 관심을 갖게 되었습니다.</span></h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div id="hanbimembercard" class="card mb-3" style="max-width: 1280px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://ifh.cc/g/GynXlX.jpg" class="img-fluid rounded-start" alt="...">
@@ -368,18 +331,29 @@
                     <div class="card-body">
                         <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">백한비</span>
                         </h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">오랜 기간동안 공장에서 일을
-                                하다 그만두게되니
-                                막상 할 줄 아는 게 아무것도 없었습니다.
-                                내일배움캠프는 알고있어서 관심은 가지고 있었지만 선뜻 손댈 수 없었던 분야였기에 이 기회에 지원하여 많은것을 배우고 이 과정을 모두 수료하여
-                                취업을 하기 위해
-                                도전하게 되었습니다.
-                                최우선 목표는 취업으로 잡고있고 부가적으로는 최대한 많은것을 배워가는 것을 목표로 하고있습니다.</span></h3>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프에 참여하게 된 계기는 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">오랜 기간동안 공장에서 일을 하다
+                                그만두게되니 막상 할 줄 아는 게 아무것도 없었습니다.
+                                내일배움캠프는 알고있어서 관심은 가지고 있었지만 선뜻 손댈 수 없었던 분야였기에 이 기회에 지원하여 많은것을 배우고 이 과정을 모두 수료하여 취업을 하기 위해
+                                도전하게 되었습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 개발
+                                경험이 있으신가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">부끄럽게도... 개발경험은 없습니다
+                                ㅠ</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프를 진행하면서 세운 목표가 있다면 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">위에도 적었지만 최우선 목표는 취업으로
+                                잡고있고 부가적으로는 최대한 많은것을 배워가는 것을 목표로 하고있습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 이
+                                밖에도 취미나 습관, 좋아하는 것들이 있나요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">게임을 정말 좋아해서 블로그도 게임
+                                관련으로 시작을 했습니다. 게임을 하는 것 뿐 아니라 게임 내에서 분석하고 정리하는 것도 좋아합니다. </span></h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div id="mingimembercard" class="card mb-3" style="max-width: 1280px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://ifh.cc/g/J4kYgQ.jpg" class="img-fluid rounded-start" alt="...">
@@ -388,16 +362,32 @@
                     <div class="card-body">
                         <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">서민기</span>
                         </h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">개발자로써 현업에서 중요한것은
-                                기술도
-                                중요하지만 팀원들과의 협업이라고 생각합니다. 이번 부트캠프에서 많은 팀원들과 소통하며 협업능력을 키우고 싶고 또한 좋은 프로젝트로 포트폴리오에
-                                기입하여
-                                이것으로 취업을 목표로 하고 있습니다.</span></h3>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프에 참여하게 된 계기는 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">컴공과를 졸업 후 시스템 엔지니어의
+                                직무를 목표로 삼았으나 백엔드 개발자로 직무를 변경하여 포트폴리오를 작성하려 했으나 그동안 학교에서 했던 프로젝트의 퀄리티가 다소 미흡하여 좋은 퀄리티의
+                                프로젝트를 개발하여 포트폴리오를 채워나가자는 생각과 전공자이지만 아직 모르는것이 많고 배워야 할 것이 많다고 생각하여 이 부트캠프를 찾게 되었습니다.
+                            </span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 개발
+                                경험이 있으신가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">개발 경험으로는 대학교에서 3,4학년때
+                                동기들과 웹 개발, 앱 개발 등을 경험했으나 대부분 프론트 쪽을 담당하여 백엔드에 대해 모르는 점이 많아 이번 캠프에서 열심히 하여 이 분야를 마스터 하고
+                                싶습니다. </span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프를 진행하면서 세운 목표가 있다면 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">개발자로써 현업에서 중요한것은 기술도
+                                중요하지만 팀원들과의 협업이라고 생각합니다. 이번 부트캠프에서 많은 팀원들과 소통하며 협업능력을 키우고 싶고 또한 좋은 프로젝트로 포트폴리오에 기입하여
+                                이것으로 취업을 목표로 하고 있습니다. </span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 이
+                                밖에도 취미나 습관, 좋아하는 것들이 있나요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">저는 낯을 가리지만 시간이 지나고
+                                편해지면 말이 많고 장난끼도 많습니다. 취미로는 친구들과 술자리도 좋아하고 구기종목 운동도 거의 좋아하며 웨이트도 좋아합니다. (공부빼곤 다 좋아해요 ㅎ)
+                                서로 가까워져야 의사소통도 원활하게 할 수 있으니 다들 잘 부탁드립니다! </span></h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 1200px;">
+        <div id="hyejinmembercard" class="card mb-3" style="max-width: 1280px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://ifh.cc/g/BxLBvs.jpg" class="img-fluid rounded-start" alt="...">
@@ -406,15 +396,33 @@
                     <div class="card-body">
                         <h1 class="card-title"><span style="font-family: 'Black Han Sans', sans-serif;">김혜진</span>
                         </h1>
-                        <h3 class="card-text"><span style="font-family: 'Dongle', sans-serif;">이번 부트캠프를 통해 개발의
-                                기본기를 탄탄히
-                                다지고 싶어요. 아무래도 비전공자고, 처음 시작하는 만큼 기초를 잘 잡아야 나중에 더 복잡한 프로젝트나 문제도 잘 해결할 수 있을 테니까요.
-                                또, 팀
-                                프로젝트를 통해 함께 문제를 해결하면서 다양한 인사이트를 얻는 것이 제 목표 중 하나예요. 다른 사람들과의 협업을 통해 제가 놓치고 있던
-                                부분들을 배우고,
-                                새로운 관점을 접하는 것이 큰 도움이 될 것 같아요. 부트캠프가 끝날 즈음에는 자신감도 많이 생기고, 앞으로 더 많은 도전에도 용기를 가질 수
-                                있길 기대하고
-                                있어요. 궁극적으로는 이 경험을 바탕으로 개발자로 취업하거나, 창업해서 돈 많이 벌고싶어요...ㅎㅎ</span></h3>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프에 참여하게 된 계기는 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">사실 개발 쪽은 예전부터 관심이
+                                있었지만, 본격적으로 해본 적은 없었어요. 그런데 우연히 인스타 광고를 보고, 나도 한번 배워보고 싶다는 생각이 들더라고요. 특히 백엔드 쪽은 아예 몰라서
+                                궁금하기도 하고, 보이지 않는 곳에서 시스템을 돌아가게 만드는 게 멋있게 느껴졌어요. 그래서 이번 부트캠프를 통해 처음부터 제대로 배워보자고 결심했어요.
+                                혼자서 공부하는 것보다는 체계적으로 배우는 게 좋을 것 같아서요. 그리고 팀 프로젝트를 통해서 다른 사람들과 협업하면서 다양한 인사이트를 얻는 것도 기대하고
+                                있어요.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 개발
+                                경험이 있으신가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">개발 경험이라고 하긴 좀 그런데… 네이버
+                                블로그에 공감과 댓글을 자동으로 달아주는 매크로나 서로이웃 추가 매크로를 만들어 봤어요. 사실 제가 직접 다 만든 건 아니고, 챗GPT의 큰 도움과 이것저것
+                                구글에서 검색도 하면서 필요한 정보를 찾아가며 조금씩 코드를 짜 봤습니다. 처음엔 완전히 생소했지만, 이런 작은 프로젝트들을 하면서 프로그래밍의 기본 개념을
+                                맛보기로 조금씩 익힐 수 있었어요. 물론 아직 많이 배워야겠지만, 그 과정에서 개발에 대한 흥미가 더 커졌고, 만들어보고 싶은게 더 많아졌어요. 그래서 이번
+                                부트캠프를 통해 본격적으로 배워보고 싶다는 생각이 들었습니다.</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 부트
+                                캠프를 진행하면서 세운 목표가 있다면 무엇인가요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">이번 부트캠프를 통해 개발의 기본기를
+                                탄탄히 다지고 싶어요. 아무래도 비전공자고, 처음 시작하는 만큼 기초를 잘 잡아야 나중에 더 복잡한 프로젝트나 문제도 잘 해결할 수 있을 테니까요. 또, 팀
+                                프로젝트를 통해 함께 문제를 해결하면서 다양한 인사이트를 얻는 것이 제 목표 중 하나예요. 다른 사람들과의 협업을 통해 제가 놓치고 있던 부분들을 배우고,
+                                새로운 관점을 접하는 것이 큰 도움이 될 것 같아요. 부트캠프가 끝날 즈음에는 자신감도 많이 생기고, 앞으로 더 많은 도전에도 용기를 가질 수 있길 기대하고
+                                있어요. 궁극적으로는 이 경험을 바탕으로 개발자로 취업하거나, 창업해서 돈 많이 벌고싶어요...</span></h5>
+                        <h4 class="card-text"><span style="font-family: 'Gothic A1', sans-serif; font-weight: 700;">· 이
+                                밖에도 취미나 습관, 좋아하는 것들이 있나요?</span></h4>
+                        <h5 class="card-text"><span style="font-family: 'Gothic A1', sans-serif;">강아지 토이푸들을 키우는데, 매일 같이
+                                산책하면서 힐링하고 있어요. 또 블로그 체험단으로 맛집 다니는 걸 좋아하고, 목이랑 어깨가 자주 뭉치는데, 타이 마사지 받으면 엄청 시원해서 가끔 받으러
+                                갑니다.
+                                영화관에서 영화보는 것도 좋아하고, 라프텔로 애니 보는 것도 좋아해요!</span></h5>
                     </div>
                 </div>
             </div>
@@ -422,66 +430,11 @@
     </div>
 
 
-    <!-- comment -->
-    <form id="c_i_box" class="comment">
-        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록 작성</h3>
-        <div class="form-floating mb-3">
-            <input id="c_i_name" type="Name" class="form-control" id="floatingInput" placeholder="Name">
-            <label for="floatingInput">Name</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input id="c_i_comment" type="comment" class="form-control" id="floatingInput" placeholder="Comment">
-            <label for="floatingInput">Comment</label>
-        </div>
-        <button id="addcommentbtn" type="button" class="btn btn-dark">Write</button>
-    </form>
-    <label></label>
-    <div id="commentbox" class="co_box">
-        <h3 style="font-family: 'Black Han Sans', sans-serif;">방명록</h3>
-        <hr>
-    </div>
 
 
     <!-- footer -->
     <div class="container-fluid" style="background-color: #2B3035">
-        <footer class="py-5">
-            <div class="row">
-                <div class="col-6 col-md-2 mb-3">
-                    <h5 style="color:white">History</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bootcamp
-                                Registration</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Precamp
-                                begins</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bootcamp
-                                begins</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Team 5:
-                                The
-                                beginning of a Legend</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5><a href="#">Event</a></h5>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5><a href="#">Gallery</a></h5>
-                </div>
-
-                <div class="col-md-5 offset-md-1 mb-3">
-                    <form>
-                        <h5 style="color:white">Subscribe to our news</h5>
-                        <p style="color:white">꾸준히 올라오는 성장스토리를 구독하세요</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
+        <footer class="py-1">
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
                 <p style="color:white">© 2024 SpartaCoding Inc. All rights reserved.</p>
                 <ul class="list-unstyled d-flex">
