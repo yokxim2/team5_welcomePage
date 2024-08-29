@@ -13,6 +13,15 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&display=swap');
 
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:hover {
+        color: inherit;
+    }
+
     .comment {
         border: 1px solid gray;
         border-radius: 5px;
@@ -43,15 +52,12 @@
     .co_box>hr {
         margin: 2px 0px 2px 0px;
     }
-    .container-fluid > h1{
-        margin-left: 310px;
-    }
 </style>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
     // Your web app's Firebase configuration
@@ -91,14 +97,16 @@
         let doc = {
             'name': name,
             'comment': comment,
-            'time': time
+            'time': time,
         }
         await addDoc(collection(db, "comments"), doc);
         alert('방명록 작성이 완료되었습니다.')
         window.location.reload()
     })
 
-    let docs = await getDocs(collection(db, "comments"));
+    const q = query(collection(db, "comments"), orderBy("time", "desc"));
+    const docs = await getDocs(q);
+    const dataDisplay = document.getElementById('commentbox');
     docs.forEach((doc) => {
         let row = doc.data();
 
@@ -121,9 +129,10 @@
 
 <body>
     <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
-        <div id="h_msg" class="container-fluid d-flex align-items-center">
-            <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-                Team5 오심헌과 아이들 방명록
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <h1 style="margin-left:310px" class="d-flex align-items-center fs-4 text-white mb-0">
+                <a href="index.html">
+                    < Home</a>
             </h1>
         </div>
     </header>

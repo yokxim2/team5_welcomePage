@@ -26,6 +26,11 @@
             color: white;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         .memberdescription {
             width: 1280px;
             margin: 30px auto 0px auto;
@@ -189,7 +194,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const analytics = getAnalytics(app);
-
     </script>
 </head>
 
@@ -199,23 +203,29 @@
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active"
-                            aria-current="page"><span class="headertext">Home</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">History</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Event</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><span
-                                class="headertext">Gallery</span></a></li>
+                    <li class="nav-item"><a href="#simhunmembercard" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page"><span class="headertext">육심헌</span></a></li>
+                    <li class="nav-item"><a href="#dongjoomembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김동주</span></a></li>
+                    <li class="nav-item"><a href="#hanbimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">백한비</span></a></li>
+                    <li class="nav-item"><a href="#mingimembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">서민기</span></a></li>
+                    <li class="nav-item"><a href="#hyejinmembercard" class="nav-link link-body-emphasis px-2"><span
+                                class="headertext">김혜진</span></a></li>
                 </ul>
+                <div class="ms-auto">
+                    <button style="margin-right:9px" type="button" class="btn btn-light"><a href="Comment.html">방명록
+                            이동하기</a></button>
+                </div>
             </div>
         </nav>
     </div>
 
     <!-- banner -->
     <div class="banner-container">
-        <img src="5심헌과 아이들.svg" alt="5심헌과 아이들">
-        <button class="btn-view-more" onclick="scrollToMain2()">View More</button>
+        <img src="https://ifh.cc/g/V1YxRS.gif" alt="5심헌과 아이들">
+        <button id="commentbtn" class="btn-view-more"><a href="Comment.html">View More</a></button>
     </div>
 
     <script>
